@@ -87,7 +87,7 @@ export function Hero() {
           >
             <div className="w-12 h-px bg-gradient-to-r from-foreground to-foreground" />
             <span className="font-[family-name:var(--font-inter)] text-sm font-medium tracking-[0.2em] text-muted uppercase">
-              {siteConfig.contact.address.city} Based Studio
+              {siteConfig.contact.address.city} Based Company
             </span>
           </motion.div>
 
@@ -176,7 +176,7 @@ export function Hero() {
                 {siteConfig.company.awardsWon}+
               </div>
               <div className="mt-2 font-[family-name:var(--font-inter)] text-sm text-muted">
-                Design Awards
+                Niggas in the chat
               </div>
             </div>
           </motion.div>

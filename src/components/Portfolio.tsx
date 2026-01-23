@@ -180,7 +180,7 @@ export function Portfolio() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-16 text-center"
         >
-          <a href="#" className="btn-outline inline-flex">
+          <a href="/projects" className="btn-outline inline-flex">
             <span>View All Projects</span>
           </a>
         </motion.div>
