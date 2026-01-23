@@ -153,7 +153,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-20 grid grid-cols-3 gap-8 max-w-lg"
+            className="mt-20 flex justify-around gap-8 max-w-lg"
           >
             <div>
               <div className="font-[family-name:var(--font-space-grotesk)] text-4xl md:text-5xl font-bold text-foreground">
@@ -163,6 +163,7 @@ export function Hero() {
                 Years Experience
               </div>
             </div>
+
             <div>
               <div className="font-[family-name:var(--font-space-grotesk)] text-4xl md:text-5xl font-bold text-foreground">
                 {siteConfig.company.projectsCompleted}+
@@ -171,14 +172,7 @@ export function Hero() {
                 Projects Completed
               </div>
             </div>
-            <div>
-              <div className="font-[family-name:var(--font-space-grotesk)] text-4xl md:text-5xl font-bold text-foreground">
-                {siteConfig.company.awardsWon}+
-              </div>
-              <div className="mt-2 font-[family-name:var(--font-inter)] text-sm text-muted">
-                Niggas in the chat
-              </div>
-            </div>
+
           </motion.div>
         </div>
       </div>
