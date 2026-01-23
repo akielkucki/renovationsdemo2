@@ -307,7 +307,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: #1a3a2a;
+  background: #000;
   transform: translateX(-101%);
   transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
