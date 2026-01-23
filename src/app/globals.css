@@ -2,16 +2,16 @@
 
 /* Custom Theme Configuration */
 @theme inline {
-  /* Colors - Forest green and off-white theme */
+  /* Colors - Forest green and cream theme */
   --color-background: #1a3a2a;
-  --color-foreground: #f5f5f0;
+  --color-foreground: #f5efe0;
   --color-surface: #234d38;
   --color-surface-elevated: #2d5a45;
   --color-border: #3d6b55;
   --color-border-subtle: #2f5c46;
-  --color-muted: #8fa89a;
-  --color-accent: #f5f5f0;
-  --color-accent-muted: #c5d4cb;
+  --color-muted: #c4bda8;
+  --color-accent: #f5efe0;
+  --color-accent-muted: #d9d2c0;
 
   /* Fonts */
   --font-display: var(--font-space-grotesk), system-ui, sans-serif;
@@ -31,7 +31,7 @@
 /* Base Styles */
 :root {
   --background: #1a3a2a;
-  --foreground: #f5f5f0;
+  --foreground: #f5efe0;
   scroll-behavior: smooth;
 }
 
@@ -79,14 +79,14 @@ body {
 
 /* Typography Utilities */
 .text-gradient {
-  background: linear-gradient(135deg, #f5f5f0 0%, #c5d4cb 100%);
+  background: linear-gradient(135deg, #f5efe0 0%, #d9d2c0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #f5f5f0 0%, #a8c4b0 50%, #f5f5f0 100%);
+  background: linear-gradient(135deg, #f5efe0 0%, #c4bda8 50%, #f5efe0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

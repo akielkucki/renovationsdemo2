@@ -85,19 +85,19 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center gap-4 mb-8"
           >
-            <div className="w-12 h-px bg-gradient-to-r from-foreground to-transparent" />
+            <div className="w-12 h-px bg-gradient-to-r from-foreground to-foreground" />
             <span className="font-[family-name:var(--font-inter)] text-sm font-medium tracking-[0.2em] text-muted uppercase">
               {siteConfig.contact.address.city} Based Studio
             </span>
           </motion.div>
 
           {/* Main heading */}
-          <div className="overflow-hidden">
+          <div className="">
             <motion.h1
               initial={{ y: 100 }}
               animate={{ y: 0 }}
               transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-              className="font-[family-name:var(--font-space-grotesk)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight text-foreground"
+              className="font-[family-name:var(--font-space-grotesk)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground"
             >
               Transforming
             </motion.h1>
