@@ -61,9 +61,9 @@ export const siteConfig = {
       icon: "home",
     },
     {
-      title: "Commercial Spaces",
-      description: "Professional environments designed for productivity and impression, from offices to retail destinations.",
-      icon: "commercial",
+      title: "Deck Building & Outdoor Spaces",
+      description: "Extend your living area outdoors with expertly crafted decks, patios, and landscaping features.",
+      icon: "outdoor",
     },
   ],
 

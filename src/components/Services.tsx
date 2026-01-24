@@ -2,29 +2,21 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
+import {BathIcon, CookingPot, HouseIcon, TreesIcon, WashingMachineIcon} from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 
 const iconMap: Record<string, ReactNode> = {
   kitchen: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-      <path d="M3 9h18M9 21V9M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      <circle cx="6" cy="6" r="1" fill="currentColor" />
-    </svg>
+    <CookingPot/>
   ),
   bathroom: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-      <path d="M4 12h16M4 12v6a2 2 0 002 2h12a2 2 0 002-2v-6M4 12V6a2 2 0 012-2h1v4M17 8a2 2 0 100-4 2 2 0 000 4z" />
-    </svg>
+    <BathIcon />
   ),
   home: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-      <path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10" />
-    </svg>
+    <HouseIcon/>
   ),
-  commercial: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-      <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M3 21h18M9 7h2M9 11h2M9 15h2M13 7h2M13 11h2M13 15h2" />
-    </svg>
+  outdoor: (
+    <TreesIcon />
   ),
 };
 
