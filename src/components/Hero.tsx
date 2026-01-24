@@ -7,7 +7,7 @@ const ScrollIndicator = () => {
       <motion.div
           initial="hidden"
           animate="visible"
-          className=" flex flex-col items-center gap-6 z-20"
+          className="flex flex-col items-center gap-6 z-20"
       >
         {/* Text Container with Staggered Blur Reveal */}
         <motion.div
@@ -77,11 +77,11 @@ export function Hero() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32">
-        <div className="max-w-5xl">
+        <div className="flex flex-col items-center text-center">
           {/* Overline */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex items-center gap-4 mb-8"
           >
@@ -89,6 +89,7 @@ export function Hero() {
             <span className="font-[family-name:var(--font-inter)] text-sm font-medium tracking-[0.2em] text-muted uppercase">
               {siteConfig.contact.address.city} Based Company
             </span>
+            <div className="w-12 h-px bg-gradient-to-l from-foreground to-foreground" />
           </motion.div>
 
           {/* Main heading */}
@@ -128,7 +129,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 max-w-xl font-[family-name:var(--font-inter)] text-lg md:text-xl text-muted leading-relaxed"
+            className="mt-8 max-w-xl mx-auto font-[family-name:var(--font-inter)] text-lg md:text-xl text-muted leading-relaxed"
           >
             {siteConfig.company.description}
           </motion.p>
@@ -138,7 +139,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-12 flex flex-col sm:flex-row gap-4"
+            className="mt-12 flex flex-col sm:flex-row justify-center gap-4"
           >
             <a href="#contact" className="btn-primary">
               <span>Start Your Project</span>
@@ -153,9 +154,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-20 flex justify-around gap-8 max-w-lg"
+            className="mt-20 flex justify-between gap-16 w-md"
           >
-            <div>
+            <div className="text-center">
               <div className="font-[family-name:var(--font-space-grotesk)] text-4xl md:text-5xl font-bold text-foreground">
                 {siteConfig.company.yearsExperience}+
               </div>
@@ -164,7 +165,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div>
+            <div className="text-center">
               <div className="font-[family-name:var(--font-space-grotesk)] text-4xl md:text-5xl font-bold text-foreground">
                 {siteConfig.company.projectsCompleted}+
               </div>
