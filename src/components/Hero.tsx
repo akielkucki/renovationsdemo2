@@ -154,7 +154,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-20 flex justify-between gap-16 w-md"
+            className="mt-20 flex justify-center gap-16 w-md"
           >
             <div className="text-center">
               <div className="font-[family-name:var(--font-space-grotesk)] text-4xl md:text-5xl font-bold text-foreground">
