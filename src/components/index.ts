@@ -7,3 +7,5 @@ export { Testimonials } from "./Testimonials";
 export { CTA } from "./CTA";
 export { Contact } from "./Contact";
 export { Footer } from "./Footer";
+export { ServiceHero } from "./ServiceHero";
+export { ServiceFeatures } from "./ServiceFeatures";

@@ -2,8 +2,14 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
-import {BathIcon, CookingPot, HouseIcon, TreesIcon, WashingMachineIcon} from "lucide-react";
+import Link from "next/link";
+import { BathIcon, CookingPot, HouseIcon, TreesIcon } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
+
+function getServiceUrl(serviceSlug: string): string {
+  const city = siteConfig.contact.address.city.toLowerCase().replace(/\s+/g, "-");
+  return `/${serviceSlug}-${city}`;
+}
 
 const iconMap: Record<string, ReactNode> = {
   kitchen: (
@@ -56,38 +62,39 @@ export function Services() {
         {/* Services grid */}
         <div className="grid md:grid-cols-2 gap-6">
           {siteConfig.services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-              className="group relative p-8 md:p-10 bg-surface border border-border hover:border-border-subtle transition-all duration-500 hover-lift"
-            >
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-foreground/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-foreground/40" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-foreground/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-foreground/40" />
+            <Link key={service.title} href={getServiceUrl(service.slug)}>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                className="group relative p-8 md:p-10 bg-surface border border-border hover:border-border-subtle transition-all duration-500 hover-lift h-full"
+              >
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-foreground/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-foreground/40" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-foreground/20 transition-all duration-500 group-hover:w-12 group-hover:h-12 group-hover:border-foreground/40" />
 
-              <div className="text-muted mb-6 transition-colors duration-300 group-hover:text-foreground">
-                {iconMap[service.icon]}
-              </div>
+                <div className="text-muted mb-6 transition-colors duration-300 group-hover:text-foreground">
+                  {iconMap[service.icon]}
+                </div>
 
-              <h3 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-foreground mb-4">
-                {service.title}
-              </h3>
+                <h3 className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-foreground mb-4">
+                  {service.title}
+                </h3>
 
-              <p className="font-[family-name:var(--font-inter)] text-muted leading-relaxed">
-                {service.description}
-              </p>
+                <p className="font-[family-name:var(--font-inter)] text-muted leading-relaxed">
+                  {service.description}
+                </p>
 
-              <div className="mt-8 flex items-center gap-2 text-foreground opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
-                <span className="font-[family-name:var(--font-inter)] text-sm font-medium tracking-wide">
-                  Learn More
-                </span>
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-            </motion.div>
+                <div className="mt-8 flex items-center gap-2 text-foreground opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
+                  <span className="font-[family-name:var(--font-inter)] text-sm font-medium tracking-wide">
+                    Learn More
+                  </span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
