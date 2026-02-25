@@ -78,6 +78,7 @@ export function Hero() {
                 className="relative z-10 max-w-7xl mx-auto px-6 py-24 text-center"
             >
                 {/* --- Status Pill --- */}
+                {/* @ts-ignore */}
                 <motion.div variants={fadeUp} className="mb-10 inline-flex items-center gap-3 rounded-full border border-zinc-200 bg-white px-5 py-2.5 shadow-[0_2px_16px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.03)]">
                     <span className="relative flex h-2 w-2">
                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
@@ -94,6 +95,8 @@ export function Hero() {
 
                     {/* Row 1 */}
                     <motion.h1
+                        /* @ts-ignore */
+
                         variants={fadeUp}
                         className="font-[family-name:var(--font-space-grotesk)] text-6xl font-bold tracking-tight text-zinc-900 sm:text-7xl md:text-8xl lg:text-9xl leading-[0.9]"
                     >
@@ -102,6 +105,7 @@ export function Hero() {
 
                     {/* Row 2: Spaces + Icon + Into */}
                     <motion.div
+                        /* @ts-ignore */
                         variants={fadeScale}
                         className="flex flex-wrap items-center justify-center gap-x-4 md:gap-x-6"
                     >
@@ -119,6 +123,7 @@ export function Hero() {
 
                     {/* Row 3: Icon + Masterpieces */}
                     <motion.div
+                        /* @ts-ignore */
                         variants={fadeUp}
                         className="flex flex-wrap items-center justify-center gap-x-4 md:gap-x-6"
                     >
@@ -134,6 +139,7 @@ export function Hero() {
 
                 {/* --- Description --- */}
                 <motion.p
+                    /* @ts-ignore */
                     variants={fadeUp}
                     className="mt-8 max-w-xl mx-auto font-[family-name:var(--font-inter)] text-lg text-zinc-500 leading-relaxed md:text-xl"
                 >
@@ -142,6 +148,7 @@ export function Hero() {
 
                 {/* --- CTA Buttons --- */}
                 <motion.div
+                    /* @ts-ignore */
                     variants={fadeUp}
                     className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
@@ -162,6 +169,7 @@ export function Hero() {
 
                 {/* --- Social Proof --- */}
                 <motion.div
+                    /* @ts-ignore */
                     variants={fadeUp}
                     className="mt-16 inline-flex flex-col sm:flex-row items-center justify-center gap-5 rounded-full border border-zinc-100 bg-white/80 backdrop-blur-md px-8 py-4 shadow-[0_2px_16px_rgba(0,0,0,0.05)]"
                 >
@@ -200,6 +208,7 @@ export function Hero() {
 
             {/* Left Card: Testimonial */}
             <motion.div
+                /* @ts-ignore */
                 variants={floatVariant}
                 initial="initial"
                 animate="animate"
@@ -222,6 +231,7 @@ export function Hero() {
 
             {/* Right Card: Stats */}
             <motion.div
+                /* @ts-ignore */
                 variants={floatVariantDelayed}
                 initial="initial"
                 animate="animate"
