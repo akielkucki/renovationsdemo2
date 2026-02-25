@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { type ReactNode } from "react";
 import { BathIcon, CookingPot, HouseIcon, TreesIcon } from "lucide-react";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig } from "@/components/index";
 
 const iconMap: Record<string, ReactNode> = {
   kitchen: <CookingPot className="w-12 h-12" />,

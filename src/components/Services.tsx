@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import Link from "next/link";
 import { BathIcon, CookingPot, HouseIcon, TreesIcon } from "lucide-react";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig } from "@/components/index";
 
 function getServiceUrl(serviceSlug: string): string {
   const city = siteConfig.contact.address.city.toLowerCase().replace(/\s+/g, "-");

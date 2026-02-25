@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig } from "@/components/index";
 import { Navigation, Footer, CTA, Contact } from "@/components";
 import { ServiceHero } from "@/components/ServiceHero";
 import { ServiceFeatures } from "@/components/ServiceFeatures";

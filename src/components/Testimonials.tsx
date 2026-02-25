@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig } from "@/components/index";
 
 export function Testimonials() {
   const ref = useRef(null);

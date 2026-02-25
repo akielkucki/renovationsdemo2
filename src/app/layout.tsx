@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig } from "@/components/index";
+import React from "react";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",

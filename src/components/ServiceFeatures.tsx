@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Check } from "lucide-react";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig } from "@/components/index";
 
 interface ServiceFeaturesProps {
   service: (typeof siteConfig.services)[number];

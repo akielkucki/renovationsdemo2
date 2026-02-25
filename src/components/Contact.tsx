@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { siteConfig } from "@/config/site.config";
+import { siteConfig } from "@/components/index";
 
 export function Contact() {
   const ref = useRef(null);
