@@ -2,87 +2,114 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/components/index";
+
+function SocialIcon({ platform }: { platform: string }) {
+  switch (platform) {
+    case "instagram":
+      return (
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      );
+    case "facebook":
+      return (
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        </svg>
+      );
+    case "houzz":
+      return (
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.518 12.375v6.281h-5.569v-10.594l2.784-1.406v-3.188l-7.733 3.938v15.594h15.532v-10.625h-5zm2.482-12.375l-7.733 3.906v3.188l7.733-3.906v-3.188z" />
+        </svg>
+      );
+    case "googleBusiness":
+      return (
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
+const platformLabels: Record<string, string> = {
+  instagram: "Instagram",
+  facebook: "Facebook",
+  houzz: "Houzz",
+  googleBusiness: "Google",
+};
 
 export function Footer() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <footer className="relative bg-surface border-t border-border" ref={ref}>
+    <footer className="relative bg-background overflow-hidden" ref={ref}>
+
+      {/* Top divider with glow */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
+
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
-          >
-            <a href="#" className="flex items-center gap-2 mb-6">
-              <span className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold tracking-tight text-foreground">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-12">
+
+        {/* Top row: Big brand + CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+          className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-16"
+        >
+          <div>
+            <a href="#" className="inline-block mb-4">
+              <span className="font-[family-name:var(--font-space-grotesk)] text-3xl md:text-4xl font-bold tracking-tight text-foreground">
                 {siteConfig.company.name}
               </span>
-              <span className="font-[family-name:var(--font-space-grotesk)] text-2xl font-light tracking-tight text-muted">
+              <span className="font-[family-name:var(--font-space-grotesk)] text-3xl md:text-4xl font-light tracking-tight text-muted ml-2">
                 {siteConfig.company.tagline}
               </span>
             </a>
-            <p className="font-[family-name:var(--font-inter)] text-muted leading-relaxed max-w-md mb-8">
+            <p className="font-[family-name:var(--font-inter)] text-muted leading-relaxed max-w-md">
               {siteConfig.footer.tagline}
             </p>
+          </div>
+          <a
+            href="#contact"
+            className="group flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-background font-[family-name:var(--font-inter)] font-semibold tracking-wide transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] hover:bg-accent-muted hover:scale-[1.03] hover:shadow-[0_8px_32px_rgba(245,239,224,0.15)] flex-shrink-0"
+          >
+            Start a Project
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </motion.div>
 
-            {/* Social links */}
-            <div className="flex gap-4">
-              {Object.entries(siteConfig.social).map(([platform, url]) => (
-                <a
-                  key={platform}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-background border border-border flex items-center justify-center text-muted hover:text-foreground hover:border-foreground/30 transition-all duration-300"
-                  aria-label={platform}
-                >
-                  {platform === "instagram" && (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                  )}
-                  {platform === "linkedin" && (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                  )}
-                  {platform === "pinterest" && (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
-                    </svg>
-                  )}
-                  {platform === "houzz" && (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12.518 12.375v6.281h-5.569v-10.594l2.784-1.406v-3.188l-7.733 3.938v15.594h15.532v-10.625h-5zm2.482-12.375l-7.733 3.906v3.188l7.733-3.906v-3.188z" />
-                    </svg>
-                  )}
-                </a>
-              ))}
-            </div>
-          </motion.div>
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-12" />
 
-          {/* Navigation column */}
+        {/* Grid: Nav + Services + Contact + Social */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-16 mb-16">
+
+          {/* Navigation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-foreground mb-6">
-              Navigation
+            <h4 className="font-[family-name:var(--font-space-grotesk)] text-sm font-semibold text-foreground mb-5 uppercase tracking-widest">
+              Navigate
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {siteConfig.navigation.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="font-[family-name:var(--font-inter)] text-muted hover:text-foreground transition-colors duration-300"
+                    className="font-[family-name:var(--font-inter)] text-sm text-muted hover:text-foreground transition-colors duration-300"
                   >
                     {item.label}
                   </a>
@@ -91,71 +118,129 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact column */}
+          {/* Services */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <h4 className="font-[family-name:var(--font-space-grotesk)] text-sm font-semibold text-foreground mb-5 uppercase tracking-widest">
+              Services
+            </h4>
+            <ul className="space-y-3">
+              {siteConfig.services.map((service) => (
+                <li key={service.title}>
+                  <span className="font-[family-name:var(--font-inter)] text-sm text-muted">
+                    {service.title}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-[family-name:var(--font-space-grotesk)] text-lg font-semibold text-foreground mb-6">
+            <h4 className="font-[family-name:var(--font-space-grotesk)] text-sm font-semibold text-foreground mb-5 uppercase tracking-widest">
               Contact
             </h4>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href={`tel:${siteConfig.contact.phone}`}
-                  className="font-[family-name:var(--font-inter)] text-muted hover:text-foreground transition-colors duration-300"
-                >
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-3.5 h-3.5 text-muted flex-shrink-0" />
+                <a href={`tel:${siteConfig.contact.phone}`} className="font-[family-name:var(--font-inter)] text-sm text-muted hover:text-foreground transition-colors duration-300">
                   {siteConfig.contact.phone}
                 </a>
               </li>
-              <li>
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="font-[family-name:var(--font-inter)] text-muted hover:text-foreground transition-colors duration-300"
-                >
+              <li className="flex items-center gap-2.5">
+                <Mail className="w-3.5 h-3.5 text-muted flex-shrink-0" />
+                <a href={`mailto:${siteConfig.contact.email}`} className="font-[family-name:var(--font-inter)] text-sm text-muted hover:text-foreground transition-colors duration-300 break-all">
                   {siteConfig.contact.email}
                 </a>
               </li>
-              <li>
-                <address className="font-[family-name:var(--font-inter)] text-muted not-italic">
-                  {siteConfig.contact.address.street}
-                  <br />
+              <li className="flex items-start gap-2.5">
+                <MapPin className="w-3.5 h-3.5 text-muted flex-shrink-0 mt-0.5" />
+                <address className="font-[family-name:var(--font-inter)] text-sm text-muted not-italic leading-relaxed">
+                  {siteConfig.contact.address.street}<br />
                   {siteConfig.contact.address.city}, {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
                 </address>
               </li>
             </ul>
           </motion.div>
+
+          {/* Social */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          >
+            <h4 className="font-[family-name:var(--font-space-grotesk)] text-sm font-semibold text-foreground mb-5 uppercase tracking-widest">
+              Follow Us
+            </h4>
+            <ul className="space-y-3">
+              {Object.entries(siteConfig.social).map(([platform, url]) => (
+                <li key={platform}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2.5 font-[family-name:var(--font-inter)] text-sm text-muted hover:text-foreground transition-colors duration-300"
+                  >
+                    <SocialIcon platform={platform} />
+                    <span>{platformLabels[platform] || platform}</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="font-[family-name:var(--font-inter)] text-sm text-muted"
+        {/* Certifications */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-wrap gap-3 mb-12"
+        >
+          {siteConfig.footer.certifications.map((cert) => (
+            <span
+              key={cert}
+              className="inline-flex items-center rounded-full border border-border-subtle bg-surface/40 px-4 py-1.5 font-[family-name:var(--font-inter)] text-xs text-muted tracking-wide"
             >
-              {siteConfig.footer.copyright}
-            </motion.p>
+              {cert}
+            </span>
+          ))}
+        </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-6"
-            >
-              <a href="#" className="font-[family-name:var(--font-inter)] text-sm text-muted hover:text-foreground transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="font-[family-name:var(--font-inter)] text-sm text-muted hover:text-foreground transition-colors">
-                Terms of Service
-              </a>
-            </motion.div>
-          </div>
+        {/* Bottom bar */}
+        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="font-[family-name:var(--font-inter)] text-xs text-muted"
+          >
+            {siteConfig.footer.copyright}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex items-center gap-6"
+          >
+            <a href="#" className="font-[family-name:var(--font-inter)] text-xs text-muted hover:text-foreground transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="font-[family-name:var(--font-inter)] text-xs text-muted hover:text-foreground transition-colors">
+              Terms of Service
+            </a>
+          </motion.div>
         </div>
       </div>
     </footer>
