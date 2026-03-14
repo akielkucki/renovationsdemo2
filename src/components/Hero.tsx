@@ -65,16 +65,15 @@ export function Hero() {
                     variants={fadeUp}
                     className="w-full font-[family-name:var(--font-space-grotesk)] font-bold text-zinc-900 leading-[1] tracking-tight"
                     style={{
-                        fontSize: "clamp(3.5rem, 10vw, 9rem)",
+                        fontSize: "clamp(2.5rem, 10vw, 5.5rem)",
                     }}
                 >
-                    <span className="w-full flex text-[5.2vw]">Transforming Spaces</span>
-                    <span className="block mt-1 md:mt-2 text-[5.2vw]">
+                    <span className="block">Transforming Spaces</span>
+                    <span className="block mt-1 md:mt-2">
                         <span className="italic font-light text-zinc-500">Into{" "}</span>
 
                         <span className="relative inline-block">
                             Masterpieces
-
                         </span>
                     </span>
                 </motion.h1>
